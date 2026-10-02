@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "baseUrl": "",
+  "model": {
+    "file": "model.onnx",
+    "bytes": 401857170,
+    "sha256": "b1de2f525b3f6684"
+  },
+  "encoder": {
+    "file": "encoder.onnx",
+    "bytes": 39183572,
+    "sha256": "8cee869e6f4334d5"
+  },
+  "assets": {
+    "file": "assets.json",
+    "bytes": 883862,
+    "sha256": "bc532e4a1c47f38e"
+  },
+  "sampleRate": 24000,
+  "voices": [
+    "estelle",
+    "javert"
+  ],
+  "voiceLanguages": {
+    "estelle": "fr",
+    "javert": "fr"
+  },
+  "phonemes": false
+}

@@ -1,0 +1,16 @@
+{
+  "source": "https://huggingface.co/thewh1teagle/pocket-tts-onnx",
+  "revision": "110f5251188e9407b4f724acdd8b0dfd0b20692a",
+  "model": {
+    "file": "model.onnx",
+    "bytes": 401857170,
+    "sha256": "b1de2f525b3f6684825a65f02bbc43d4eca9178cd97812344bba902590a7710b",
+    "parts": [
+      "model.onnx.part00",
+      "model.onnx.part01",
+      "model.onnx.part02",
+      "model.onnx.part03",
+      "model.onnx.part04"
+    ]
+  }
+}
