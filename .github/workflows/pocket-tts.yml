@@ -33,7 +33,8 @@ jobs:
           curl -fsSL "$BASE/$MODEL" -o "$RUNNER_TEMP/model"
           WANT=$(jq -r '.model.sha256 // empty' "$DIR/manifest.json")
           GOT=$(sha256sum "$RUNNER_TEMP/model" | cut -d' ' -f1)
-          if [ -n "$WANT" ] && [ "$WANT" != "$GOT" ]; then echo "Empreinte inattendue : $GOT au lieu de $WANT"; exit 1; fi
+          # Le manifeste ne donne que le début de l'empreinte (16 caractères) : le fichier doit commencer par lui.
+          case "$GOT" in "$WANT"*) echo "Empreinte vérifiée : $GOT" ;; *) echo "Empreinte inattendue : $GOT au lieu de $WANT…"; exit 1 ;; esac
           split -b 95000000 -d -a 2 "$RUNNER_TEMP/model" "$DIR/$MODEL.part"
           jq -n --arg repo "$REPO" --arg rev "$REV" --arg model "$MODEL" --arg sha "$GOT" \
             --argjson bytes "$(stat -c %s "$RUNNER_TEMP/model")" \
